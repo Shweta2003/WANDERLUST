@@ -1,0 +1,26 @@
+project: https://platform.activestate.com/Blossom-Shweta/ActivePython-3.8?commitID=2197c3fc-f104-4daf-a02b-2301ab0ae346
+
+languages: # Please run 'state push' to create your language runtime, once you do the language entry here will be removed
+  - name: python3
+    version: 
+private: false
+
+scripts:
+  - name: activationMessage
+    language: python3
+    value: |
+      # -*- coding: utf-8 -*-
+      import textwrap
+      print(textwrap.dedent("""
+        You are now in an activated state, which is like a virtual environment to work
+        in that doesn't affect the rest of your system. To leave, run `exit`.
+
+        What's next?
+        - To learn more about what you can do, run → `state --help`
+        - To modify this runtime like adding packages or platforms, visit https://platform.activestate.com/Blossom-Shweta/ActivePython-3.8
+      """))
+events:
+  # This is the ACTIVATE event, it will run whenever a new virtual environment is created (eg. by running `state activate`)
+  # On Linux and macOS this will be ran as part of your shell's rc file, so you can use it to set up aliases, functions, environment variables, etc.
+  - name: ACTIVATE
+    value: python3.exe $scripts.activationMessage.path()

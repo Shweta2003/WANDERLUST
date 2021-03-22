@@ -1,0 +1,39 @@
+{% load static %}
+{% static "registration" as baseUrl %}
+{% static "images" as baseUrl %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+{% if dest in dests %}
+    <meta charset="UTF-8">
+    <title>{{dest.name}}</title>
+</head>
+<body>
+<style>
+    body {
+    background: url("{% static 'registration/registration/images/about_1.jpg' %}") no-repeat center center fixed;
+    -webkit-background-size:cover;
+    -moz-background-size:cover;
+    background-size:cover;
+    -o-background-size:cover;
+    }
+</style>
+<center><h1>FIND THE BEST OFFERS HERE!!!</h1>
+<h1>Explore till your heart feels overloaded...</h1>
+</center>
+
+	<center>
+	<img src='{{dest.img.url}}' alt="">
+		<div><a href="/"<h2>{{dest.name}}</h2></a></div>
+	<div><p>{{dest.desc}}</p></div>
+	<div>From ${{dest.price}}</div>
+		<br>
+		<br>
+	</center>
+
+{% endif %}
+
+
+</body>
+</html>

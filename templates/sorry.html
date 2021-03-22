@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SORRY</title>
+</head>
+<body>
+<style>
+.button
+{
+    font-size: 13px;
+    color:white;
+    background-color:black;
+}
+</style>
+<style>
+.button1
+{
+    font-size: 13px;
+    color:black;
+    background-color:#009900;
+}
+</style>
+<style>
+div.solid {border-style: solid;
+width:90%;
+background:url({% static 'hotels/images/save.jpg' %});
+}
+</style>
+<center>
+    <br>
+<div class="solid">
+
+    <h1 style="font-family:Goudy Stout">WE ARE EXTREMELY SORRY FROM THE BOTTOM OF OUR HEARTS....</h1>
+        <h1 style="font-family:Algerian">SORRY FOR THE INCONVENIENCE!!!</h1>
+    <h2 style="font-family:Script MT Bold;color:blue">Site currently under construction...</h2>
+    <h2 style="font-family:Script MT Bold">You cannot pay or book anything right now!!</h2>
+    <h2 style="font-family:Script MT Bold">For further details contact....</h2>
+    <form method="get" action="/accounts/contact">
+    <button style="font-family:Cooper Black" class="button" type="submit"><p>CONTACT US</p></button>
+    </form>
+    <h1 style="font-family:Algerian">THANKYOU FOR USING OUR SITE...</h1>
+    <h2 style="font-family:Script MT Bold">Hope you enjoyed it...</h2>
+</div>
+</center>
+<center><form method="get" action="/">
+    <button style="font-family:Cooper Black" class="button1" type="submit"><p>GO BACK TO HOME PAGE</p></button>
+</form></center>
+</body>
+
+</html>

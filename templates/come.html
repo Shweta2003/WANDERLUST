@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>COMMENTS</title>
+</head>
+<body>
+<style>
+    body {
+    background: url("{% static 'hotels/images/comments.jpg' %}") no-repeat center center fixed;
+    -webkit-background-size:cover;
+    -moz-background-size:cover;
+    background-size:cover;
+    -o-background-size:cover;
+    }
+</style>
+<style>
+.button
+{
+    font-size: 13px;
+    color:white;
+    background-color:black;
+}
+<style>
+.button1
+{
+    font-size: 13px;
+    color:black;
+    background-color:white;
+}
+</style>
+<center><h1 style="font-family:Cooper Black">SEE TO ALL YOUR AS WELL AS YOUR FRIEND'S COMMENTS BELOW...</h1>
+    {% for c in co %}
+        <br>
+        <p style="font-family:Arial Black">{{ c.id }}. NAME OF USER  :  {{ c.name }}</p>
+        <p style="font-family:Arial Black">REVIEWS  :  {{ c.body }}</p>
+        <br>
+        <br>
+        <form method="get" action="/">
+        <button class="button1" type="submit"><p>REPLY</p></button>
+        </form>
+        <strong><p style="font-family:Goudy Stout"><--------------------NEXT--------------------></p></strong>
+    {% empty %}
+        <p>No Comments!!!</p>
+        <p>Be the first one to add the comments!!!</p>
+    {% endfor %}
+</center>
+<center><form method="get" action="/">
+    <button style="font-family:Cooper Black" class="button" type="submit"><p>GO BACK TO HOME PAGE</p></button>
+</form></center>
+</body>
+</html>

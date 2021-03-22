@@ -1,0 +1,204 @@
+{% load static %}
+{% static "hotels/images" as baseUrl %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% for f in fool %}
+        <meta charset="UTF-8">
+        <title>{{f.1}}</title>
+    {% endfor %}
+<style>
+* {box-sizing: border-box}
+body {font-family: "Lato", sans-serif;}
+
+/* Style the tab */
+.tab {
+  float: left;
+  border: 5px solid black;
+  background-color:inherit;
+  width: 30%;
+  height: 3340px;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+  display: block;
+  background-color: inherit;
+  color: black;
+  padding: 22px 16px;
+  width: 100%;
+  border:black;
+  outline: none;
+  text-align: left;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current "tab button" class */
+.tab button.active {
+  background-color:white;
+}
+
+/* Style the tab content */
+.tabcontent {
+  float: left;
+  padding: 0px 12px;
+  width: 70%;
+  border-left: none;
+ height: 100%;
+ }
+</style>
+</head>
+
+<body>
+<style>
+.button
+{
+    font-size: 13px;
+    color:white;
+    background-color:black;
+}
+</style>
+<style>
+.button1
+{
+    font-size: 13px;
+    color:black;
+    background-color:#009900;
+}
+</style>
+<div class="tab">
+  <button class="tablinks" id="defaultOpen" onclick="openCity(event, 'HOTELS')">HOTELS</button>
+  <button class="tablinks" onclick="openCity(event, 'THINGS')">THINGS TO DO</button>
+  <button class="tablinks" onclick="openCity(event, 'RESTAURANTS')">RESTAURANTS</button>
+  <button class="tablinks" onclick="openCity(event, 'FLIGHTS')">FLIGHTS</button>
+
+</div>
+<div class="tabcontent" id="HOTELS">
+{% for f in fool %}
+<center><h1 style="font-family:Cooper black">TOP HOTELS IN {{f.1}}</h1></center>
+{{ "<!--" }}
+{%endfor%}
+{{ "-->" }}
+    {% for f in fool %}
+        <p style="font-family:Copperplate Gothic Bold">NAME OF THE HOTEL  :  {{f.2}}</p>
+        <p style="font-family:Copperplate Gothic Bold">ESTIMATED PRICE  :  RS.{{f.3}}</p>
+        <center><img ,height="50%" alt="" length="50%"src="{{baseUrl}}{{f.4|slice:'4:'}}"/></center>
+        <center><form method="get" action="/accounts/book">
+        <button style="font-family:Arial Black" class="button1" type="submit"><p>BOOK NOW</p></button>
+        </form></center>
+        <center><p style="font-family:Goudy Stout"><------NEXT------></p></center>
+        <br>
+        <br>
+        <br>
+     {% endfor %}
+
+</div>
+<div background-color="Red" class="tabcontent" id="THINGS">
+{% for f in fool1 %}
+<center><h1 style="font-family:Cooper black">THINGS YOU MUST DO IN {{f.1}}</h1></center>
+{{ "<!--" }}
+{%endfor%}
+{{ "-->" }}
+    {% for f in fool1 %}
+        <p style="font-family:Elephant"><STRONG>{{f.2}}</STRONG></p>
+        <p style="font-family:Kristen ITC">{{f.4}}</p>
+        <center><img ,height="50%" alt="" length="50%"src="{{baseUrl}}{{f.3|slice:'4:'}}"/></center>
+        <center><p style="font-family:Goudy Stout"><------NEXT------></p></center>
+        <br>
+        <br>
+        <br>
+     {% endfor %}
+</div>
+<div class="tabcontent" id="RESTAURANTS">
+
+{% for f in fool2 %}
+<center><h1 style="font-family:Cooper black">TOP RESTAURANTS IN {{f.1}} YOU MUST TRY!!!</h1></center>
+{{ "<!--" }}
+{%endfor%}
+{{ "-->" }}
+    {% for f in fool2 %}
+        <p style="font-family:Arial Black">NAME OF THE RESTAURANTS  :  {{f.2}}</p>
+        <p style="font-family:Poor Richard">RATINGS : {{f.6}}</p>
+
+        <p style="font-family:Poor Richard">REVIEW : {{f.3}}</p>
+        <p style="font-family:Poor Richard">HOURS :</p>
+        <p style="font-family:Poor Richard">STARTING FROM : {{f.4}}</p>
+        <p style="font-family:Poor Richard">TILL : {{f.5}}</p>
+        <p style="font-family:Poor Richard">ESTIMATED PRICE OF RESTAURANTS : {{f.8}}</p>
+        <p style="font-family:Poor Richard">ADDRESS : {{f.9}}</p>
+        <p style="font-family:Poor Richard">CONTACT HERE FOR MORE : {{f.7}}</p>
+        <br>
+        <br>
+        <center><form method="get" action="/accounts/book">
+        <button style="font-family:Arial Black" class="button1" type="submit"><p>BOOK SEATS NOW!!</p></button>
+        </form></center>
+        <center><p style="font-family:Goudy Stout"><------NEXT------></p></center>
+        <br>
+        <br>
+        <br>
+     {% endfor %}
+
+</div>
+<div class="tabcontent" id="FLIGHTS">
+    <style>
+    body {
+    background: url("{% static 'hotels/images/travel.jpg' %}") no-repeat center center fixed;
+    -webkit-background-size:cover;
+    -moz-background-size:cover;
+    background-size:cover;
+    -o-background-size:cover;
+    }
+    </style>
+{% for f in fool3 %}
+<center><h1 style="font-family:Cooper black">CHECK THE CHEAPEST FLIGHTS FROM MOST FAMOUS INTERNATIONAL FLIGHTS OF INDIA TO {{f.1}}</h1></center>
+{{ "<!--" }}
+{%endfor%}
+{{ "-->" }}
+    {% for f in fool %}
+        <p style="font-family:Arial Black">FROM  :  {{f.2}}</p>
+        <p style="font-family:Arial Black">DESTINATION  :  {{f.3}}</p>
+        <p style="font-family:Arial Black">HOURS OF TRAVEL : {{f.4}}</p>
+        <p style="font-family:Arial Black">NAME OF FLIGHT : {{f.6}}</p>
+        <p style="font-family:Arial Black">PRICE ON OUR SITE : {{f.5}}</p>
+        <br>
+        <br>
+        <center><form method="get" action="/accounts/book">
+        <button style="font-family:Arial Black" class="button1" type="submit"><p>BOOK TICKETS NOW!!</p></button>
+        </form></center>
+        <center><p style="font-family:Goudy Stout"><------NEXT------></p></center>
+        <br>
+        <br>
+        <br>
+     {% endfor %}
+
+</div>
+<script>
+function openCity(evt, cityName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+</script>
+<center><form method="get" action="/">
+    <button style="font-family:Cooper Black" class="button" type="submit"><p>GO BACK TO HOME PAGE</p></button>
+</form></center>
+</body>
+</html>

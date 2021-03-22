@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8"><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={licenseKey:"52c0c7a266",applicationID:"13105456"};window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var i=n[t]={exports:{}};e[t][0].call(i.exports,function(n){var i=e[t][1][n];return r(i||n)},i,i.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var i=0;i<t.length;i++)r(t[i]);return r}({1:[function(e,n,t){function r(){}function i(e,n,t){return function(){return o(e,[u.now()].concat(f(arguments)),n?null:this,t),n?void 0:this}}var o=e("handle"),a=e(4),f=e(5),c=e("ee").get("tracer"),u=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],l="api-",d=l+"ixn-";a(p,function(e,n){s[n]=i(l+n,!0,"api")}),s.addPageAction=i(l+"addPageAction",!0),s.setCurrentRouteName=i(l+"routeName",!0),n.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,n){var t={},r=this,i="function"==typeof n;return o(d+"tracer",[u.now(),e,t],r),function(){if(c.emit((i?"":"no-")+"fn-start",[u.now(),r,i],t),i)try{return n.apply(this,arguments)}catch(e){throw c.emit("fn-err",[arguments,this,e],t),e}finally{c.emit("fn-end",[u.now()],t)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,n){m[n]=i(d+n)}),newrelic.noticeError=function(e,n){"string"==typeof e&&(e=new Error(e)),o("err",[e,u.now(),!1,n])}},{}],2:[function(e,n,t){function r(e,n){var t=e.getEntries();t.forEach(function(e){"first-paint"===e.name?c("timing",["fp",Math.floor(e.startTime)]):"first-contentful-paint"===e.name&&c("timing",["fcp",Math.floor(e.startTime)])})}function i(e,n){var t=e.getEntries();t.length>0&&c("lcp",[t[t.length-1]])}function o(e){if(e instanceof s&&!l){var n,t=Math.round(e.timeStamp);n=t>1e12?Date.now()-t:u.now()-t,l=!0,c("timing",["fi",t,{type:e.type,fid:n}])}}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var a,f,c=e("handle"),u=e("loader"),s=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){a=new PerformanceObserver(r),f=new PerformanceObserver(i);try{a.observe({entryTypes:["paint"]}),f.observe({entryTypes:["largest-contentful-paint"]})}catch(p){}}if("addEventListener"in document){var l=!1,d=["click","keydown","mousedown","pointerdown","touchstart"];d.forEach(function(e){document.addEventListener(e,o,!1)})}}},{}],3:[function(e,n,t){function r(e,n){if(!i)return!1;if(e!==i)return!1;if(!n)return!0;if(!o)return!1;for(var t=o.split("."),r=n.split("."),a=0;a<r.length;a++)if(r[a]!==t[a])return!1;return!0}var i=null,o=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var f=navigator.userAgent,c=f.match(a);c&&f.indexOf("Chrome")===-1&&f.indexOf("Chromium")===-1&&(i="Safari",o=c[1])}n.exports={agent:i,version:o,match:r}},{}],4:[function(e,n,t){function r(e,n){var t=[],r="",o=0;for(r in e)i.call(e,r)&&(t[o]=n(r,e[r]),o+=1);return t}var i=Object.prototype.hasOwnProperty;n.exports=r},{}],5:[function(e,n,t){function r(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,i=t-n||0,o=Array(i<0?0:i);++r<i;)o[r]=e[n+r];return o}n.exports=r},{}],6:[function(e,n,t){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,n,t){function r(){}function i(e){function n(e){return e&&e instanceof r?e:e?c(e,f,o):o()}function t(t,r,i,o){if(!l.aborted||o){e&&e(t,r,i);for(var a=n(i),f=v(t),c=f.length,u=0;u<c;u++)f[u].apply(a,r);var p=s[y[t]];return p&&p.push([b,t,r,a]),a}}function d(e,n){h[e]=v(e).concat(n)}function m(e,n){var t=h[e];if(t)for(var r=0;r<t.length;r++)t[r]===n&&t.splice(r,1)}function v(e){return h[e]||[]}function g(e){return p[e]=p[e]||i(t)}function w(e,n){u(e,function(e,t){n=n||"feature",y[t]=n,n in s||(s[n]=[])})}var h={},y={},b={on:d,addEventListener:d,removeEventListener:m,emit:t,get:g,listeners:v,context:n,buffer:w,abort:a,aborted:!1};return b}function o(){return new r}function a(){(s.api||s.feature)&&(l.aborted=!0,s=l.backlog={})}var f="nr@context",c=e("gos"),u=e(4),s={},p={},l=n.exports=i();l.backlog=s},{}],gos:[function(e,n,t){function r(e,n,t){if(i.call(e,n))return e[n];var r=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:r,writable:!0,enumerable:!1}),r}catch(o){}return e[n]=r,r}var i=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(e,n,t){function r(e,n,t,r){i.buffer([e],r),i.emit(e,n,t)}var i=e("ee").get("handle");n.exports=r,r.ee=i},{}],id:[function(e,n,t){function r(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:a(e,o,function(){return i++})}var i=1,o="nr@id",a=e("gos");n.exports=r},{}],loader:[function(e,n,t){function r(){if(!x++){var e=E.info=NREUM.info,n=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&n))return s.abort();u(y,function(n,t){e[n]||(e[n]=t)}),c("mark",["onload",a()+E.offset],null,"api");var t=d.createElement("script");t.src="https://"+e.agent,n.parentNode.insertBefore(t,n)}}function i(){"complete"===d.readyState&&o()}function o(){c("mark",["domContent",a()+E.offset],null,"api")}function a(){return O.exists&&performance.now?Math.round(performance.now()):(f=Math.max((new Date).getTime(),f))-E.offset}var f=(new Date).getTime(),c=e("handle"),u=e(4),s=e("ee"),p=e(3),l=window,d=l.document,m="addEventListener",v="attachEvent",g=l.XMLHttpRequest,w=g&&g.prototype;NREUM.o={ST:setTimeout,SI:l.setImmediate,CT:clearTimeout,XHR:g,REQ:l.Request,EV:l.Event,PR:l.Promise,MO:l.MutationObserver};var h=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1169.min.js"},b=g&&w&&w[m]&&!/CriOS/.test(navigator.userAgent),E=n.exports={offset:f,now:a,origin:h,features:{},xhrWrappable:b,userAgent:p};e(1),e(2),d[m]?(d[m]("DOMContentLoaded",o,!1),l[m]("load",r,!1)):(d[v]("onreadystatechange",i),l[v]("onload",r)),c("mark",["firstbyte",f],null,"api");var x=0,O=e(6)},{}],"wrap-function":[function(e,n,t){function r(e){return!(e&&e instanceof Function&&e.apply&&!e[a])}var i=e("ee"),o=e(5),a="nr@original",f=Object.prototype.hasOwnProperty,c=!1;n.exports=function(e,n){function t(e,n,t,i){function nrWrapper(){var r,a,f,c;try{a=this,r=o(arguments),f="function"==typeof t?t(r,a):t||{}}catch(u){l([u,"",[r,a,i],f])}s(n+"start",[r,a,i],f);try{return c=e.apply(a,r)}catch(p){throw s(n+"err",[r,a,p],f),p}finally{s(n+"end",[r,a,c],f)}}return r(e)?e:(n||(n=""),nrWrapper[a]=e,p(e,nrWrapper),nrWrapper)}function u(e,n,i,o){i||(i="");var a,f,c,u="-"===i.charAt(0);for(c=0;c<n.length;c++)f=n[c],a=e[f],r(a)||(e[f]=t(a,u?f+i:i,o,f))}function s(t,r,i){if(!c||n){var o=c;c=!0;try{e.emit(t,r,i,n)}catch(a){l([a,t,r,i])}c=o}}function p(e,n){if(Object.defineProperty&&Object.keys)try{var t=Object.keys(e);return t.forEach(function(t){Object.defineProperty(n,t,{get:function(){return e[t]},set:function(n){return e[t]=n,n}})}),n}catch(r){l([r])}for(var i in e)f.call(e,i)&&(n[i]=e[i]);return n}function l(n){try{e.emit("internal-error",n)}catch(t){}}return e||(e=i),t.inPlace=u,t.flag=a,t}},{}]},{},["loader"]);</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="profile" href="http://gmpg.org/xfn/11">
+<link rel="pingback" href="https://www.hearinglink.org/xmlrpc.php">
+<!--[if IE]><link rel="stylesheet" type="text/css" href="/assets/css/ie-style.css"/><![endif]-->
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-59MPDX');</script>
+<!-- End Google Tag Manager -->
+<script>var et_site_url='https://www.hearinglink.org';var et_post_id='160';function et_core_page_resource_fallback(a,b){"undefined"===typeof b&&(b=a.sheet.cssRules&&0===a.sheet.cssRules.length);b&&(a.onerror=null,a.onload=null,a.href?a.href=et_site_url+"/?et_core_page_resource="+a.id+et_post_id:a.src&&(a.src=et_site_url+"/?et_core_page_resource="+a.id+et_post_id))}
+</script>
+	<!-- This site is optimized with the Yoast SEO plugin v14.2 - https://yoast.com/wordpress/plugins/seo/ -->
+	<title>Travelling - Hearing Link</title>
+	<meta name="description" content="Hints and tips about travelling by train or plane and going on holiday if you have a hearing loss. Find useful information." />
+	<meta name="robots" content="index, follow" />
+	<meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+	<meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+	<link rel="canonical" href="https://www.hearinglink.org/living/out-about/travelling/" />
+	<meta property="og:locale" content="en_GB" />
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content="Travelling - Hearing Link" />
+	<meta property="og:description" content="Hints and tips about travelling by train or plane and going on holiday if you have a hearing loss. Find useful information." />
+	<meta property="og:url" content="https://www.hearinglink.org/living/out-about/travelling/" />
+	<meta property="og:site_name" content="Hearing Link" />
+	<meta property="article:publisher" content="https://www.facebook.com/HearingLink/" />
+	<meta property="article:modified_time" content="2020-01-27T10:02:01+00:00" />
+	<meta property="og:image" content="https://www.hearinglink.org/wp-content/uploads/2018/09/Hearing-loss-and-travelling-on-holiday-and-by-plane-and-train-1024x683.jpeg" />
+	<meta property="og:image:width" content="1024" />
+	<meta property="og:image:height" content="683" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:creator" content="@HearingLink" />
+	<meta name="twitter:site" content="@HearingLink" />
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://www.hearinglink.org/#organization","name":"Hearing Link","url":"https://www.hearinglink.org/","sameAs":["https://www.facebook.com/HearingLink/","https://www.linkedin.com/company/hearing-link","https://www.youtube.com/user/Hearinglink","https://twitter.com/HearingLink"],"logo":{"@type":"ImageObject","@id":"https://www.hearinglink.org/#logo","inLanguage":"en-GB","url":"https://www.hearinglink.org/wp-content/uploads/2016/02/hearing-link-logo.png","width":700,"height":138,"caption":"Hearing Link"},"image":{"@id":"https://www.hearinglink.org/#logo"}},{"@type":"WebSite","@id":"https://www.hearinglink.org/#website","url":"https://www.hearinglink.org/","name":"Hearing Link","description":"Connecting people, transforming lives","publisher":{"@id":"https://www.hearinglink.org/#organization"},"potentialAction":[{"@type":"SearchAction","target":"https://www.hearinglink.org/?s={search_term_string}","query-input":"required name=search_term_string"}],"inLanguage":"en-GB"},{"@type":"ImageObject","@id":"https://www.hearinglink.org/living/out-about/travelling/#primaryimage","inLanguage":"en-GB","url":"https://www.hearinglink.org/wp-content/uploads/2018/09/Hearing-loss-and-travelling-on-holiday-and-by-plane-and-train.jpeg","width":4368,"height":2912},{"@type":"WebPage","@id":"https://www.hearinglink.org/living/out-about/travelling/#webpage","url":"https://www.hearinglink.org/living/out-about/travelling/","name":"Travelling - Hearing Link","isPartOf":{"@id":"https://www.hearinglink.org/#website"},"primaryImageOfPage":{"@id":"https://www.hearinglink.org/living/out-about/travelling/#primaryimage"},"datePublished":"2016-02-15T12:13:39+00:00","dateModified":"2020-01-27T10:02:01+00:00","description":"Hints and tips about travelling by train or plane and going on holiday if you have a hearing loss. Find useful information.","breadcrumb":{"@id":"https://www.hearinglink.org/living/out-about/travelling/#breadcrumb"},"inLanguage":"en-GB","potentialAction":[{"@type":"ReadAction","target":["https://www.hearinglink.org/living/out-about/travelling/"]}]},{"@type":"BreadcrumbList","@id":"https://www.hearinglink.org/living/out-about/travelling/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"WebPage","@id":"https://www.hearinglink.org/","url":"https://www.hearinglink.org/","name":"Home"}},{"@type":"ListItem","position":2,"item":{"@type":"WebPage","@id":"https://www.hearinglink.org/living/","url":"https://www.hearinglink.org/living/","name":"Living"}},{"@type":"ListItem","position":3,"item":{"@type":"WebPage","@id":"https://www.hearinglink.org/living/out-about/","url":"https://www.hearinglink.org/living/out-about/","name":"Out &#038; about"}},{"@type":"ListItem","position":4,"item":{"@type":"WebPage","@id":"https://www.hearinglink.org/living/out-about/travelling/","url":"https://www.hearinglink.org/living/out-about/travelling/","name":"Travelling"}}]}]}</script>
+	<!-- / Yoast SEO plugin. -->
+
+
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel='dns-prefetch' href='//s.w.org' />
+<link rel="alternate" type="application/rss+xml" title="Hearing Link &raquo; Feed" href="https://www.hearinglink.org/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Hearing Link &raquo; Comments Feed" href="https://www.hearinglink.org/comments/feed/" />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/www.hearinglink.org\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.4.1"}};
+			/*! This file is auto-generated */
+			!function(e,a,t){var r,n,o,i,p=a.createElement("canvas"),s=p.getContext&&p.getContext("2d");function c(e,t){var a=String.fromCharCode;s.clearRect(0,0,p.width,p.height),s.fillText(a.apply(this,e),0,0);var r=p.toDataURL();return s.clearRect(0,0,p.width,p.height),s.fillText(a.apply(this,t),0,0),r===p.toDataURL()}function l(e){if(!s||!s.fillText)return!1;switch(s.textBaseline="top",s.font="600 32px Arial",e){case"flag":return!c([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])&&(!c([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!c([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]));case"emoji":return!c([55357,56424,55356,57342,8205,55358,56605,8205,55357,56424,55356,57340],[55357,56424,55356,57342,8203,55358,56605,8203,55357,56424,55356,57340])}return!1}function d(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(i=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},o=0;o<i.length;o++)t.supports[i[o]]=l(i[o]),t.supports.everything=t.supports.everything&&t.supports[i[o]],"flag"!==i[o]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[i[o]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(r=t.source||{}).concatemoji?d(r.concatemoji):r.wpemoji&&r.twemoji&&(d(r.twemoji),d(r.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel='stylesheet' id='wp-block-library-css'  href='https://www.hearinglink.org/wp-includes/css/dist/block-library/style.min.css?ver=5.4.1' type='text/css' media='all' />
+<link rel='stylesheet' id='cookie-law-info-css'  href='https://www.hearinglink.org/wp-content/plugins/cookie-law-info/public/css/cookie-law-info-public.css?ver=1.8.8' type='text/css' media='all' />
+<link rel='stylesheet' id='cookie-law-info-gdpr-css'  href='https://www.hearinglink.org/wp-content/plugins/cookie-law-info/public/css/cookie-law-info-gdpr.css?ver=1.8.8' type='text/css' media='all' />
+<link rel='stylesheet' id='responsive-lightbox-prettyphoto-css'  href='https://www.hearinglink.org/wp-content/plugins/responsive-lightbox/assets/prettyphoto/prettyPhoto.min.css?ver=2.2.2' type='text/css' media='all' />
+<link rel='stylesheet' id='et_monarch-css-css'  href='https://www.hearinglink.org/wp-content/plugins/monarch/css/style.css?ver=1.4.12' type='text/css' media='all' />
+<link rel='stylesheet' id='et-gf-open-sans-css'  href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' type='text/css' media='all' />
+<link rel='stylesheet' id='hearinglink-style-css'  href='https://www.hearinglink.org/wp-content/themes/pwl-hearinglink/style.css?ver=5.4.1' type='text/css' media='all' />
+<link rel='stylesheet' id='hearinglink-theme-foundation-css'  href='https://www.hearinglink.org/wp-content/themes/pwl-hearinglink/assets/css/foundation.min.css?ver=5.4.1' type='text/css' media='all' />
+<link rel='stylesheet' id='hearinglink-theme-style-css'  href='https://www.hearinglink.org/wp-content/themes/pwl-hearinglink/assets/css/style.css?ver=5.4.1' type='text/css' media='all' />
+<script type='text/javascript' src='https://www.hearinglink.org/wp-includes/js/jquery/jquery.js?ver=1.12.4-wp'></script>
+<script type='text/javascript' src='https://www.hearinglink.org/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var Cli_Data = {"nn_cookie_ids":[],"cookielist":[]};
+var log_object = {"ajax_url":"https:\/\/www.hearinglink.org\/wp-admin\/admin-ajax.php"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.hearinglink.org/wp-content/plugins/cookie-law-info/public/js/cookie-law-info-public.js?ver=1.8.8'></script>
+<script type='text/javascript' src='https://www.hearinglink.org/wp-content/plugins/responsive-lightbox/assets/infinitescroll/infinite-scroll.pkgd.min.js?ver=5.4.1'></script>
+<link rel='https://api.w.org/' href='https://www.hearinglink.org/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.hearinglink.org/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://www.hearinglink.org/wp-includes/wlwmanifest.xml" /> 
+<link rel='shortlink' href='https://www.hearinglink.org/?p=160' />
+<link rel="alternate" type="application/json+oembed" href="https://www.hearinglink.org/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.hearinglink.org%2Fliving%2Fout-about%2Ftravelling%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://www.hearinglink.org/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.hearinglink.org%2Fliving%2Fout-about%2Ftravelling%2F&#038;format=xml" />
+<style type="text/css" id="et-social-custom-css">
+				 
+			</style><link rel="icon" href="https://www.hearinglink.org/wp-content/uploads/2016/03/HL-Butterfly-CMYK-150x150.png" sizes="32x32" />
+<link rel="icon" href="https://www.hearinglink.org/wp-content/uploads/2016/03/HL-Butterfly-CMYK.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://www.hearinglink.org/wp-content/uploads/2016/03/HL-Butterfly-CMYK.png" />
+<meta name="msapplication-TileImage" content="https://www.hearinglink.org/wp-content/uploads/2016/03/HL-Butterfly-CMYK.png" />
+
+		<style type="text/css" id="wp-custom-css">
+			/*
+You can add your own CSS here.
+
+Click the help icon above to learn more.
+*/
+
+@media (max-width: 40em) {
+img.alignleft, img.alignright {
+
+    width: 100%;
+}
+}
+
+#breadcrumbs span {
+    font-size: 14px;
+    color: #165C7D !important;
+}
+#breadcrumbs a {
+    color: #165C7D !important;
+    font-size: 14px;
+}
+
+body.search span.relevanssi-query-term {
+		background-color: #ffc;
+}
+
+body.search p span.relevanssi-query-term {
+	font-weight: bold; 
+}
+
+.soliloquy-theme-base .soliloquy-caption-bottom div.soliloquy-caption-inside {
+	padding-bottom:5px;
+}
+
+/* latest news sidebar */
+.side-news li {
+	min-height:30px;
+	font-size: 15px;
+}
+.side-news li a {
+	padding-left:0;
+	min-height:inherit;
+}
+.side-news li a .news-item-date {
+	display:none;
+}
+
+.privacy-terms {
+	font-size: 12px;
+	margin-bottom: 1em;	
+}
+
+.archive .disclaimer {
+	display: none;
+}
+
+.post .author-bio:before {
+	right: -1px;
+}
+
+/*temp fix for menu highlight*/
+/* menu item highlighting */
+.subnav .menu .current-category-parent > a,
+.subnav .menu .current-menu-parent > a
+{
+  background: #0183bb;
+  color: white;
+  width: 100%;
+  display: block;
+  font-size: 14px; }
+
+.subnav .menu .sub-menu .current-menu-item > a,
+.subnav .menu .sub-menu .current-post-parent > a{
+  background: #e0e0e0!important;
+  color: #165C7D;
+  width: 100%;
+  display: block;
+  font-family: MuseoSlab-700;
+  font-size: 14px; }
+.subnav .menu .current-post-parent > a:before {
+  content: '\00BB';
+  padding-right: 0.5em; }
+
+/*forms*/
+form input[type=text], form select, form textarea{ border-radius: 5px; }
+form .row .columns {padding-right: 10px; }
+form .row .columns:last-child { padding: 0;}
+@media screen and (max-width: 39.9375em) { form .row .columns { padding: 0; } }
+form label { font-size: 16px; }
+form label.required:after {
+content: " *";
+color: #790000;
+}
+form.enews-signup-form label{
+color: #165C7D;
+font-weight: 700;
+text-align:left
+}
+form.enews-signup-form .privacy-terms{
+margin-top:1rem;
+}
+form label.error { color: red!important; font-weight:normal!important;margin-top: -1rem }
+form#enews-signup-sidebar > .row > .columns {padding-right:0;}
+		</style>
+		</head>
+
+<body class="page-template-default page page-id-160 page-child parent-pageid-157 et_monarch group-blog">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-59MPDX"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+	<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+
+	<header class="header-container">
+        <a href="/"><img src="https://www.hearinglink.org/wp-content/uploads/2016/05/CornerArc.png" alt="Hearing Link" /></a>
+        <div class="row branding">
+            <div class="columns large-9 medium-12 small-12 header-logo">
+		             <div class="site-branding">
+						          <span>Connecting people, transforming lives</span>
+					       </div><!-- .site-branding -->
+            </div>
+
+            <div class="columns large-3 medium-12 small-12 header-helpdesk">
+	            <div class="menu-header-container"><ul id="menu-header" class="menu"><li id="menu-item-3679" class="askus-button menu-item menu-item-type-post_type menu-item-object-page menu-item-3679"><a href="https://www.hearinglink.org/services/helpdesk/">Helpdesk</a></li>
+<li id="menu-item-3091" class="donate-button menu-item menu-item-type-post_type menu-item-object-page menu-item-3091"><a href="https://www.hearinglink.org/get-involved/donate/donate-online/">Donate</a></li>
+</ul></div><form role="search" method="get" id="search-form" class="search-form" action="https://www.hearinglink.org/">
+        <label class="screen-reader-text" for="s"></label>
+        <input type="text" aria-label="Search query" class="search-field" value="" placeholder="Search &hellip;" name="s" id="s" />
+        <input type="submit" class="search-submit" value="Search" />
+</form>
+            </div>
+
+        </div>
+
+        <nav class="header-menu">
+            <div class="row">
+                <nav id="site-navigation" class="main-navigation" role="navigation">
+					          <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">Main Menu</button>
+					          <div class="menu-main-menu-container"><ul id="primary-menu" class="header-nav"><li id="menu-item-797" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-797"><a href="https://www.hearinglink.org/your-hearing/">Your hearing</a>
+<ul class="sub-menu">
+	<li id="menu-item-4080" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4080"><a href="https://www.hearinglink.org/your-hearing/what-to-do-about-hearing-loss/">What to do about hearing loss</a></li>
+	<li id="menu-item-4193" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4193"><a href="https://www.hearinglink.org/your-hearing/how-to-describe-hearing-loss/">How to describe hearing loss</a></li>
+	<li id="menu-item-4349" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4349"><a href="https://www.hearinglink.org/your-hearing/sudden-sensorineural-hearing-loss/">Sudden sensorineural hearing loss</a></li>
+	<li id="menu-item-4304" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4304"><a href="https://www.hearinglink.org/your-hearing/causes-hearing-loss/">Causes of hearing loss</a></li>
+	<li id="menu-item-4013" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4013"><a href="https://www.hearinglink.org/your-hearing/what-is-a-hearing-test/">What is a hearing test?</a></li>
+	<li id="menu-item-3831" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3831"><a href="https://www.hearinglink.org/your-hearing/what-is-a-hearing-aid/">What is a hearing aid?</a></li>
+	<li id="menu-item-809" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-809"><a href="https://www.hearinglink.org/your-hearing/tinnitus/">Tinnitus</a></li>
+	<li id="menu-item-810" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-810"><a href="https://www.hearinglink.org/your-hearing/balance-disorders/">Balance disorders</a></li>
+	<li id="menu-item-812" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-812"><a href="https://www.hearinglink.org/your-hearing/implants/">Implants</a></li>
+	<li id="menu-item-4195" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4195"><a href="https://www.hearinglink.org/your-hearing/protecting-your-hearing/">Protecting your hearing</a></li>
+	<li id="menu-item-4335" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4335"><a href="https://www.hearinglink.org/your-hearing/about-hearing/">About hearing</a></li>
+</ul>
+</li>
+<li id="menu-item-799" class="menu-item menu-item-type-post_type menu-item-object-page current-page-ancestor menu-item-has-children menu-item-799"><a href="https://www.hearinglink.org/living/">Living</a>
+<ul class="sub-menu">
+	<li id="menu-item-4651" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4651"><a href="https://www.hearinglink.org/living/your-stories/">Your stories</a></li>
+	<li id="menu-item-828" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-828"><a href="https://www.hearinglink.org/living/adjusting-to-hearing-loss/">Adjusting to hearing loss</a></li>
+	<li id="menu-item-829" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-829"><a href="https://www.hearinglink.org/living/partners-children-family-hearing-people/">Partners &#038; family</a></li>
+	<li id="menu-item-830" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-830"><a href="https://www.hearinglink.org/living/lipreading-communicating/">Lipreading &#038; communicating</a></li>
+	<li id="menu-item-831" class="menu-item menu-item-type-post_type menu-item-object-page current-page-ancestor menu-item-831"><a href="https://www.hearinglink.org/living/out-about/">Out &#038; about</a></li>
+	<li id="menu-item-832" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-832"><a href="https://www.hearinglink.org/living/work-education/">Work &#038; education</a></li>
+	<li id="menu-item-835" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-835"><a href="https://www.hearinglink.org/living/rights-benefits/">Rights &#038; benefits</a></li>
+	<li id="menu-item-834" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-834"><a href="https://www.hearinglink.org/living/loops-equipment/">Loops &#038; equipment</a></li>
+</ul>
+</li>
+<li id="menu-item-800" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-800"><a href="https://www.hearinglink.org/services/">Services</a>
+<ul class="sub-menu">
+	<li id="menu-item-1412" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1412"><a href="https://www.hearinglink.org/services/helpdesk/">Helpdesk</a></li>
+	<li id="menu-item-837" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-837"><a href="https://www.hearinglink.org/services/community-support-volunteers/">Community support volunteers</a></li>
+	<li id="menu-item-838" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-838"><a href="https://www.hearinglink.org/services/intensive-rehabilitation-programmes/">Intensive rehabilitation</a></li>
+	<li id="menu-item-839" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-839"><a href="https://www.hearinglink.org/services/linkups/">LinkUps</a></li>
+	<li id="menu-item-840" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-840"><a href="https://www.hearinglink.org/services/professionals/">Professionals</a></li>
+	<li id="menu-item-4669" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4669"><a href="https://www.hearinglink.org/services/hearing-hub/">Hearing Hub</a></li>
+	<li id="menu-item-4776" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4776"><a href="https://www.hearinglink.org/services/hearing-support-edinburgh/">Hearing support Edinburgh</a></li>
+</ul>
+</li>
+<li id="menu-item-801" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-801"><a href="https://www.hearinglink.org/connect/">Connect</a>
+<ul class="sub-menu">
+	<li id="menu-item-1555" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1555"><a href="https://www.hearinglink.org/connect/hearing-link-england/">Hearing Link England</a></li>
+	<li id="menu-item-842" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-842"><a href="https://www.hearinglink.org/connect/hearing-link-scotland/">Hearing Link Scotland</a></li>
+	<li id="menu-item-843" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-843"><a href="https://www.hearinglink.org/connect/hearing-link-wales/">Hearing Link Wales</a></li>
+	<li id="menu-item-844" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-844"><a href="https://www.hearinglink.org/connect/hearing-link-northern-ireland/">Hearing Link Northern Ireland</a></li>
+	<li id="menu-item-2096" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2096"><a href="https://www.hearinglink.org/connect/e-newsletter/">E-newsletter</a></li>
+	<li id="menu-item-845" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-845"><a href="https://www.hearinglink.org/connect/magazine/">Magazine</a></li>
+	<li id="menu-item-847" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-847"><a href="https://www.hearinglink.org/connect/groups-clubs-people-hearing-loss/">Groups &#038; clubs</a></li>
+	<li id="menu-item-848" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-848"><a href="https://www.hearinglink.org/connect/useful-hearing-loss-organisations/">Useful organisations</a></li>
+	<li id="menu-item-4234" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4234"><a href="https://www.hearinglink.org/connect/blogs-forums/">Blogs &#038; Forums</a></li>
+</ul>
+</li>
+<li id="menu-item-4029" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-4029"><a href="https://www.hearinglink.org/news/">News</a></li>
+<li id="menu-item-3309" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-3309"><a href="https://www.hearinglink.org/lets-hear/">Let&#8217;s Hear</a>
+<ul class="sub-menu">
+	<li id="menu-item-3314" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3314"><a href="https://www.hearinglink.org/lets-hear/about-lets-hear/">About Let&#8217;s Hear</a></li>
+	<li id="menu-item-3321" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3321"><a href="https://www.hearinglink.org/lets-hear/lets-hear-rotarians/">Let&#8217;s Hear for Rotarians</a></li>
+	<li id="menu-item-3330" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3330"><a href="https://letshear.hearinglink.org/">Rate &#038; Review hearing loops</a></li>
+	<li id="menu-item-3315" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3315"><a href="https://www.hearinglink.org/lets-hear/become-a-loop-checker/">Become a loop checker</a></li>
+</ul>
+</li>
+<li id="menu-item-802" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-802"><a href="https://www.hearinglink.org/get-involved/">Get involved</a>
+<ul class="sub-menu">
+	<li id="menu-item-849" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-849"><a href="https://www.hearinglink.org/get-involved/membership/">Membership</a></li>
+	<li id="menu-item-4175" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4175"><a href="https://www.hearinglink.org/get-involved/volunteer/">Volunteer</a></li>
+	<li id="menu-item-855" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-855"><a href="https://www.hearinglink.org/get-involved/donate/">Donate</a></li>
+	<li id="menu-item-3669" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3669"><a href="https://www.hearinglink.org/get-involved/donate/a-gift-in-your-will/">A gift in your will</a></li>
+</ul>
+</li>
+<li id="menu-item-803" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-803"><a target="_blank" rel="noopener noreferrer" href="https://shop.hearinglink.org">Shop</a></li>
+<li id="menu-item-866" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-866"><a href="https://www.hearinglink.org/about-us/">About us</a>
+<ul class="sub-menu">
+	<li id="menu-item-859" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-859"><a href="https://www.hearinglink.org/about-us/our-work/">Our work</a></li>
+	<li id="menu-item-860" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-860"><a href="https://www.hearinglink.org/about-us/who-we-are/">Who we are</a></li>
+	<li id="menu-item-861" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-861"><a href="https://www.hearinglink.org/about-us/annual-reports-reviews/">Annual Reports &#038; Reviews</a></li>
+	<li id="menu-item-2191" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2191"><a href="https://www.hearinglink.org/about-us/contact-us/">Contact us</a></li>
+</ul>
+</li>
+</ul></div>				        </nav><!-- #site-navigation -->
+            </div>
+        </nav>
+    </header>
+
+<main class="row">
+
+<div class="row">
+
+	<section class="columns large-9 large-push-3 medium-12 small-12 page-content">
+	<a id="content"></a>
+<!-- breadcrumbs, title and featured image -->
+	<div class="row">
+<p id="breadcrumbs"><span><span><a href="https://www.hearinglink.org/">Home</a> ￫ <span><a href="https://www.hearinglink.org/living/">Living</a> ￫ <span><a href="https://www.hearinglink.org/living/out-about/">Out &#038; about</a> ￫ <span class="breadcrumb_last" aria-current="page">Travelling</span></span></span></span></span></p>	</div>
+
+<h1 class="page-title">Travelling</h1>
+	<div class="feature-image-page">
+		<a href="https://www.hearinglink.org/wp-content/uploads/2018/09/Hearing-loss-and-travelling-on-holiday-and-by-plane-and-train.jpeg" data-rel="lightbox">
+<img width="350" height="233" src="https://www.hearinglink.org/wp-content/uploads/2018/09/Hearing-loss-and-travelling-on-holiday-and-by-plane-and-train-350x233.jpeg" class="feature-image-page wp-post-image" alt="Guidance on travelling with hearing loss, on holiday and by plane and train" title="Guidance on travelling with hearing loss, on holiday and by plane and train" srcset="https://www.hearinglink.org/wp-content/uploads/2018/09/Hearing-loss-and-travelling-on-holiday-and-by-plane-and-train-350x233.jpeg 350w, https://www.hearinglink.org/wp-content/uploads/2018/09/Hearing-loss-and-travelling-on-holiday-and-by-plane-and-train-300x200.jpeg 300w, https://www.hearinglink.org/wp-content/uploads/2018/09/Hearing-loss-and-travelling-on-holiday-and-by-plane-and-train-768x512.jpeg 768w, https://www.hearinglink.org/wp-content/uploads/2018/09/Hearing-loss-and-travelling-on-holiday-and-by-plane-and-train-1024x683.jpeg 1024w" sizes="(max-width: 350px) 100vw, 350px" />		</a>
+	</div>
+<p>Going on holiday gives us the opportunity to relax, to be with family, friends and acquaintances, to be together and share new experiences. But travelling at home and abroad, or staying in a strange place, can be stressful (even when you have good hearing). With hearing loss, it can be even more challenging.</p>
+<p>Here are a few glitches that can happen:</p>
+<ul>
+<li>Mishearing announcements on busy train stations and in airports.</li>
+<li>Asking directions from strangers.</li>
+<li>Missing vital information announced by the tour guide.</li>
+<li>Trying to lipread a foreign language – even when you know the language well.</li>
+<li>Trying to communicate in a busy, noisy restaurant.</li>
+<li>Taking your hearing aids or cochlear implants out to swim and realising that you cannot hear when the attendant tells you to leave the pool.</li>
+<li>Going on an expensive guided tour and not understanding a word.</li>
+</ul>
+<p>However, a little forethought can make things easier.</p>
+<table style="border-collapse: collapse; width: 100%;" border="1">
+<tbody>
+<tr>
+<td style="width: 25%; text-align: center;">Making your booking</td>
+<td style="width: 25.0725%; text-align: center;">Hearing aids and equipment</td>
+<td style="width: 24.9275%; text-align: center;">At the hotel</td>
+<td style="width: 25%; text-align: center;">When you are out and about</td>
+</tr>
+<tr>
+<td style="width: 25%;">Make your holiday booking online if possible as all confirmation will be in writing.</td>
+<td style="width: 25.0725%;">Have your hearing aids/cochlear implant checked by the audiology department before you leave on holiday.</td>
+<td style="width: 24.9275%;">Remind hotel staff that you will not:</p>
+<ul>
+<li>hear anyone knock on your room door</li>
+<li>use the telephone</li>
+<li>hear the smoke alarm – make alternative arrangements with the staff.</li>
+</ul>
+</td>
+<td style="width: 25%;">Carry a small notebook and pen so that directions from strangers can be written for you.</td>
+</tr>
+<tr>
+<td style="width: 25%;">Ask for everything to be confirmed in writing &#8211; price, dates, bookings and travel arrangements.</td>
+<td style="width: 25.0725%;">Take any equipment you need with you e.g. vibrating alarm clock, door beacon, portable telephone amplifier, television listening device and smoke alarm. Take an adapter.</td>
+<td style="width: 24.9275%;">Restaurants are often quieter if you go for a very early, or a very late, lunch.</td>
+<td style="width: 25%;">Learn the phrase ‘I am deaf’ in the language of the country you are visiting or have it written on a card.</td>
+</tr>
+<tr>
+<td style="width: 25%;">Make sure you know your travel arrangements clearly in advance &#8211; timetable, changes of train or plane, locations of airports, stations and coach pick-up points.</td>
+<td style="width: 25.0725%;">Pack spare hearing aid batteries.</td>
+<td style="width: 24.9275%;">Wear a <a href="https://shop.hearinglink.org/badges-8-c.asp" target="_blank" rel="noopener noreferrer">‘Lipreader please speak clearly’ or ‘Hard of Hearing’ badge</a> from the Hearing Link online shop.</td>
+<td style="width: 25%;">Translate a few communication tactics into the language of the country you are visiting and have them written on a card.</td>
+</tr>
+<tr>
+<td style="width: 25%;">Find out if the hotel has any provision for hard of hearing and deaf people before you book with them e.g. visible or tactile smoke alarm, subtitled television.</td>
+<td style="width: 25.0725%;">Carry a simple hearing aid repair kit &#8211; puffer, tubing, threader, cleaner, wet wipes, drying box (if you use one).</td>
+<td style="width: 24.9275%;">Don’t be afraid to ask professionals, such as tour guides, for help if you need it.</td>
+<td style="width: 25%;">Take maps – it is difficult to hear people’s instructions but if you have a map they can show you the way.</td>
+</tr>
+<tr>
+<td style="width: 25%;">Self-catering can provide you with privacy and less background noise for meal times.</td>
+<td style="width: 25.0725%;">Check that you will be able to send text messages from your mobile telephone from abroad.</td>
+<td style="width: 24.9275%;"></td>
+<td style="width: 25%;">Invest in a good guide book – that way you will not have to rely on other people telling you things – or take maps and information on your smart-phone or tablet.</td>
+</tr>
+<tr>
+<td style="width: 25%;">Make sure any travelling companion knows the extent of your deafness and give them a few deaf awareness instructions beforehand.</td>
+<td style="width: 25.0725%;">
+<p>If you’re flying, you may find <a href="https://shop.hearinglink.org/summer-offer---cirrus-earplanes-for-flying-adults-1-pair-84-p.asp" target="_blank" rel="noopener noreferrer">Ear Planes</a> useful (available in the Hearing Link shop).</p>
+<p>&nbsp;</p>
+<p>&nbsp;</td>
+<td style="width: 24.9275%;"></td>
+<td style="width: 25%;">Your travelling companions are on holiday too – do not use them as ‘interpreters’ unless really necessary. Try to be as independent as possible.</td>
+</tr>
+<tr>
+<td style="width: 25%;"></td>
+<td style="width: 25.0725%;">Also in the Hearing Link shop you can find <a href="https://shop.hearinglink.org/summer-offer--cirrus-clearears-for-removing-water-from-ears-after-swimming-5-pairs-87-p.asp" target="_blank" rel="noopener noreferrer">Clear Ears</a> which protect your ears whilst swimming.</td>
+<td style="width: 24.9275%;"></td>
+<td style="width: 25%;"> Tell people that you have a hearing loss in advance and be clear about what you need.</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<h2></h2>
+<hr />
+<h2><a href="https://www.hearinglink.org/wp-content/uploads/2018/09/Hearing-loss-and-travelling-by-plane.jpeg" data-rel="lightbox-image-0" data-rl_title="" data-rl_caption="" title=""><img class="alignright wp-image-4553 size-feature-image" src="https://www.hearinglink.org/wp-content/uploads/2018/09/Hearing-loss-and-travelling-by-plane-350x233.jpeg" alt="Hearing loss and travelling by plane" width="350" height="233" srcset="https://www.hearinglink.org/wp-content/uploads/2018/09/Hearing-loss-and-travelling-by-plane-350x233.jpeg 350w, https://www.hearinglink.org/wp-content/uploads/2018/09/Hearing-loss-and-travelling-by-plane-300x200.jpeg 300w, https://www.hearinglink.org/wp-content/uploads/2018/09/Hearing-loss-and-travelling-by-plane-768x512.jpeg 768w, https://www.hearinglink.org/wp-content/uploads/2018/09/Hearing-loss-and-travelling-by-plane-1024x683.jpeg 1024w" sizes="(max-width: 350px) 100vw, 350px" /></a>Travelling by plane</h2>
+<p>Whether you’re going on a business trip or off on holiday, take a bit of time to prepare for your flight. For example, let the airline know your needs in advance – explaining clearly the help you require and that you cannot hear announcements.</p>
+<p>Other do’s and don’ts:</p>
+<ul>
+<li>Checkout <a href="http://abta.com/tips-and-latest/travel-tips" target="_blank" rel="noopener noreferrer">ABTA’s checklist for travellers with disabilities</a></li>
+<li>Request that the assistance you require is confirmed in writing on your ticket or itinerary</li>
+<li>Most airports have induction loops, public textphones and public amplified telephones</li>
+<li>A member of the airport staff may escort you to your plane along with other disabled passengers</li>
+<li>Tell the cabin staff on the plane that you have a hearing loss</li>
+<li>The staff may have Deaf Awareness Training or a qualification in British Sign Language</li>
+<li>They may be able to provide the health and safety instructions and general information in writing for you</li>
+<li>Your hearing dog should be allowed to travel in the plane with you and free of charge – remember that your dog should have its passport and vaccinations too!</li>
+</ul>
+<p>British Airways and Virgin Atlantic, in particular, have special departments to look after the needs of disabled passengers. Visit:</p>
+<ul>
+<li><a href="http://www.britishairways.com/travel/disabilityassistanceinfo" target="_blank" rel="noopener noreferrer">www.britishairways.com/travel/disabilityassistanceinfo</a></li>
+<li><a href="https://www.virginholidays.co.uk/important/special-assistance" target="_blank" rel="noopener noreferrer">virginholidays.co.uk</a></li>
+</ul>
+<p>Airport Parking Shop did some research on seven of the top UK Airports. Read their blog about using <a href="https://www.airport-parking-shop.co.uk/blog/using-airports-with-sensory-impairments/" target="_blank" rel="noopener noreferrer">airports if you have a hearing loss</a>.</p>
+<hr />
+<p>&nbsp;</p>
+<h2><a href="https://www.hearinglink.org/wp-content/uploads/2018/09/Hearing-loss-and-travelling-by-train.jpeg" data-rel="lightbox-image-1" data-rl_title="" data-rl_caption="" title=""><img class="alignright wp-image-4554 size-feature-image" title="Hearing loss and travelling by train" src="https://www.hearinglink.org/wp-content/uploads/2018/09/Hearing-loss-and-travelling-by-train-350x233.jpeg" alt="Hearing loss and travelling by train" width="350" height="233" srcset="https://www.hearinglink.org/wp-content/uploads/2018/09/Hearing-loss-and-travelling-by-train-350x233.jpeg 350w, https://www.hearinglink.org/wp-content/uploads/2018/09/Hearing-loss-and-travelling-by-train-300x200.jpeg 300w, https://www.hearinglink.org/wp-content/uploads/2018/09/Hearing-loss-and-travelling-by-train-768x513.jpeg 768w, https://www.hearinglink.org/wp-content/uploads/2018/09/Hearing-loss-and-travelling-by-train-1024x683.jpeg 1024w" sizes="(max-width: 350px) 100vw, 350px" /></a>Travelling by train</h2>
+<p>If you find changing trains and hearing announcements difficult, National Rail staff can provide help via their Assisted Travel Service.</p>
+<ul>
+<li>Contact the Train Company that manages your local station at least 24 hours in advance of your journey</li>
+<li>Request the exact help you will need e.g. changing trains at Chester</li>
+<li>Give specific details of your needs when booking your journey</li>
+<li>Visit <a href="http://www.nationalrail.co.uk/stations_destinations/disabled_passengers.aspx" target="_blank" rel="noopener noreferrer">National Rail Enquiries Information for Disabled Passengers</a></li>
+</ul>
+<h3>Disabled Persons’ Railcard</h3>
+<ul>
+<li>Save train fares for you and a companion</li>
+<li>Visit <a href="http://www.disabledpersons-railcard.co.uk/" target="_blank" rel="noopener noreferrer">Disabled Person&#8217;s Railcard</a></li>
+</ul>
+<h3>Train Survey results</h3>
+<p>We asked Hearing Link&#8217;s community panel about their experiences of travelling by train. You can read the findings of our survey below.</p>
+<p><em>To enlarge and read the document below, please click on ‘open’ (on the bottom right hand side), then use the arrows to page through it.</em><br />
+
+<div id="publitas-embed-w8jw73fbkrc"></div>
+<script src="https://view.publitas.com/embed.js" type="text/javascript" publitas-embed data-wrapperId="publitas-embed-w8jw73fbkrc" data-cfasync="false" data-menu="false" data-publication="https://view.publitas.com/hearing-link/train-survey-results/" data-responsive="true"></script>
+</p>
+<hr />
+<p><em>Webpage published: 2018</em></p>
+<div class="columns large-12 medium-12 small-12 publitas"></div>
+  <!--Related Posts -->
+  <section class="row related-posts page-content-footer">
+<h2 class="widgettitle">Visit other pages on our site &#8230;</h2>
+<div class="textwidget custom-html-widget"></div>      <article class="columns large-4 medium-12 small-12 related-posts">
+        <ul>
+          <li><a href="https://www.hearinglink.org/services/helpdesk/"><img width="350" height="233" src="https://www.hearinglink.org/wp-content/uploads/2016/03/IMG_6682-1-350x233.jpg" class="attachment-feature-image size-feature-image wp-post-image" alt="Two Hearing Link helpdesk responders" srcset="https://www.hearinglink.org/wp-content/uploads/2016/03/IMG_6682-1-350x233.jpg 350w, https://www.hearinglink.org/wp-content/uploads/2016/03/IMG_6682-1-300x200.jpg 300w, https://www.hearinglink.org/wp-content/uploads/2016/03/IMG_6682-1-768x512.jpg 768w, https://www.hearinglink.org/wp-content/uploads/2016/03/IMG_6682-1-1024x683.jpg 1024w, https://www.hearinglink.org/wp-content/uploads/2016/03/IMG_6682-1-e1459541044387.jpg 1800w" sizes="(max-width: 350px) 100vw, 350px" /></a></li>
+          <li><h3><a href="https://www.hearinglink.org/services/helpdesk/">Helpdesk</a></h3></li>
+          <li><p>If you’re looking for answers, seeking support or simply need to talk to someone who understands – just ask!</p>
+</li>
+        </ul>
+      </article>
+        <article class="columns large-4 medium-12 small-12 related-posts">
+        <ul>
+          <li><a href="http://shop.hearinglink.org/tv-pro-163-p.asp" target="_blank"><img width="350" height="233" src="https://www.hearinglink.org/wp-content/uploads/2019/07/Conversor-TV-Pro-demo-350x233.jpg" class="attachment-feature-image size-feature-image wp-post-image" alt="Conversor TV Pro" /></a></li>
+          <li><h3><a href="http://shop.hearinglink.org/tv-pro-163-p.asp" target="_blank">Shop – Conversor TV Pro</a></h3></li>
+          <li><p>Having trouble hearing the TV? The Conversor TV Pro can help, sending crystal clear sound directly into your ears. Visit the Hearing Link online shop to purchase yours.</p>
+</li>
+        </ul>
+      </article>
+        <article class="columns large-4 medium-12 small-12 related-posts">
+        <ul>
+          <li><a href="https://www.hearinglink.org/news/201808/heathrow-introduces-hidden-disability-lanyards/"><img width="350" height="233" src="https://www.hearinglink.org/wp-content/uploads/2018/08/sunflower-lanyard-350x233.png" class="attachment-feature-image size-feature-image wp-post-image" alt="sunflower lanyard" /></a></li>
+          <li><h3><a href="https://www.hearinglink.org/news/201808/heathrow-introduces-hidden-disability-lanyards/">Heathrow introduces hidden disability lanyards</a></h3></li>
+          <li><p>Heathrow Airport has launched a new lanyard to support people with hidden disabilities, including those with hearing loss.</p>
+</li>
+        </ul>
+      </article>
+    </section>
+
+
+
+	</section>
+
+	<section class="columns large-3 large-pull-9 medium-12 small-12 subnav">
+	
+<div class="menu-living-container"><ul id="menu-living" class="menu"><li id="menu-item-4647" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-4647"><a href="https://www.hearinglink.org/living/your-stories/">Your stories</a>
+<ul class="sub-menu">
+	<li id="menu-item-4648" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4648"><a href="https://www.hearinglink.org/living/your-stories/craigs-story/">Craig&#8217;s story</a></li>
+	<li id="menu-item-4649" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4649"><a href="https://www.hearinglink.org/living/your-stories/mays-story/">May&#8217;s story</a></li>
+	<li id="menu-item-4650" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4650"><a href="https://www.hearinglink.org/living/your-stories/gills-story/">Gill&#8217;s story</a></li>
+	<li id="menu-item-4653" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4653"><a href="https://www.hearinglink.org/living/your-stories/lauras-story/">Laura&#8217;s story</a></li>
+	<li id="menu-item-4675" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4675"><a href="https://www.hearinglink.org/living/your-stories/shonas-story/">Shona&#8217;s story</a></li>
+	<li id="menu-item-4677" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4677"><a href="https://www.hearinglink.org/living/your-stories/kirsteens-story/">Kirsteen&#8217;s story</a></li>
+	<li id="menu-item-4683" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4683"><a href="https://www.hearinglink.org/living/your-stories/maureens-story/">Maureen&#8217;s story</a></li>
+	<li id="menu-item-971" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-971"><a href="https://www.hearinglink.org/living/your-stories/videos-people-talking-about-hearing-loss/">Videos – people talking about hearing loss</a></li>
+</ul>
+</li>
+<li id="menu-item-960" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-960"><a href="https://www.hearinglink.org/living/adjusting-to-hearing-loss/">Adjusting to hearing loss</a>
+<ul class="sub-menu">
+	<li id="menu-item-961" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-961"><a href="https://www.hearinglink.org/living/adjusting-to-hearing-loss/5-stages-of-hearing-loss/">5 stages of hearing loss</a></li>
+	<li id="menu-item-2722" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2722"><a href="https://www.hearinglink.org/living/adjusting-to-hearing-loss/living-hearing-loss-infographic/">Living with hearing loss infographic</a></li>
+	<li id="menu-item-973" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-973"><a href="https://www.hearinglink.org/living/adjusting-to-hearing-loss/living-with-hearing-loss/">Living with hearing loss</a></li>
+	<li id="menu-item-3449" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3449"><a href="https://www.hearinglink.org/living/adjusting-to-hearing-loss/unheard-voices/">Unheard Voices</a></li>
+	<li id="menu-item-4226" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4226"><a href="https://www.hearinglink.org/living/adjusting-to-hearing-loss/hearing-loss-and-counselling/">Hearing loss and counselling</a></li>
+</ul>
+</li>
+<li id="menu-item-974" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-974"><a href="https://www.hearinglink.org/living/partners-children-family-hearing-people/">Partners, children, family &#038; hearing people</a>
+<ul class="sub-menu">
+	<li id="menu-item-975" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-975"><a href="https://www.hearinglink.org/living/partners-children-family-hearing-people/common-reactions-to-hearing-loss/">Common reactions to hearing loss</a></li>
+	<li id="menu-item-976" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-976"><a href="https://www.hearinglink.org/living/partners-children-family-hearing-people/how-to-communicate-with-a-hearing-impaired-person/">How to communicate with a hearing impaired person</a></li>
+	<li id="menu-item-1374" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1374"><a href="https://www.hearinglink.org/living/partners-children-family-hearing-people/partners-family-video/">Partners &#038; family video</a></li>
+</ul>
+</li>
+<li id="menu-item-982" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-982"><a href="https://www.hearinglink.org/living/lipreading-communicating/">Lipreading &#038; communicating</a>
+<ul class="sub-menu">
+	<li id="menu-item-981" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-981"><a href="https://www.hearinglink.org/living/lipreading-communicating/what-is-lipreading/">What is lipreading?</a></li>
+	<li id="menu-item-4293" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4293"><a href="https://www.hearinglink.org/living/lipreading-communicating/how-to-lipread/">How to lipread</a></li>
+	<li id="menu-item-984" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-984"><a href="https://www.hearinglink.org/living/lipreading-communicating/lipreading-classes/">Lipreading classes</a></li>
+	<li id="menu-item-985" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-985"><a href="https://www.hearinglink.org/living/lipreading-communicating/non-verbal-communication/">Non-verbal communication</a></li>
+	<li id="menu-item-986" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-986"><a href="https://www.hearinglink.org/living/lipreading-communicating/improve-room-acoustics/">Improve room acoustics</a></li>
+	<li id="menu-item-4260" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4260"><a href="https://www.hearinglink.org/living/lipreading-communicating/hearing-loss-shopping/">Hearing loss &#038; shopping</a></li>
+	<li id="menu-item-4262" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4262"><a href="https://www.hearinglink.org/living/lipreading-communicating/hearing-loss-eating-out/">Hearing loss &#038; eating out</a></li>
+	<li id="menu-item-988" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-988"><a href="https://www.hearinglink.org/living/lipreading-communicating/taking-time-out/">Taking time out</a></li>
+</ul>
+</li>
+<li id="menu-item-989" class="menu-item menu-item-type-post_type menu-item-object-page current-page-ancestor current-menu-ancestor current-menu-parent current-page-parent current_page_parent current_page_ancestor menu-item-has-children menu-item-989"><a href="https://www.hearinglink.org/living/out-about/">Out &#038; about</a>
+<ul class="sub-menu">
+	<li id="menu-item-991" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-160 current_page_item menu-item-991"><a href="https://www.hearinglink.org/living/out-about/travelling/" aria-current="page">Travelling</a></li>
+	<li id="menu-item-3643" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3643"><a href="https://www.hearinglink.org/living/out-about/hearing-loss-safety/">Hearing Loss &#038; safety</a></li>
+</ul>
+</li>
+<li id="menu-item-1000" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1000"><a href="https://www.hearinglink.org/living/work-education/">Work &#038; education</a>
+<ul class="sub-menu">
+	<li id="menu-item-1001" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1001"><a href="https://www.hearinglink.org/living/work-education/access-to-work/">Access to work</a></li>
+	<li id="menu-item-4266" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4266"><a href="https://www.hearinglink.org/living/work-education/access-to-education/">Access to education</a></li>
+</ul>
+</li>
+<li id="menu-item-1036" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1036"><a href="https://www.hearinglink.org/living/rights-benefits/">Rights &#038; benefits</a>
+<ul class="sub-menu">
+	<li id="menu-item-1037" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1037"><a href="https://www.hearinglink.org/living/rights-benefits/communication-support/">Communication support</a></li>
+	<li id="menu-item-1038" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1038"><a href="https://www.hearinglink.org/living/rights-benefits/personal-independence-payment-pip-attendance-allowance-aa/">Personal Independence Payment (PIP) &#038; Attendance Allowance (AA)</a></li>
+</ul>
+</li>
+<li id="menu-item-1020" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1020"><a href="https://www.hearinglink.org/living/loops-equipment/">Loops &#038; equipment</a>
+<ul class="sub-menu">
+	<li id="menu-item-3765" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3765"><a href="https://www.hearinglink.org/living/loops-equipment/telephones/">Telephones</a></li>
+	<li id="menu-item-1034" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1034"><a href="https://www.hearinglink.org/living/loops-equipment/relayuk/">Relay UK</a></li>
+	<li id="menu-item-1030" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1030"><a href="https://www.hearinglink.org/living/loops-equipment/useful-apps-for-hearing-loss/">Useful apps for hearing loss</a></li>
+	<li id="menu-item-1033" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1033"><a href="https://www.hearinglink.org/living/loops-equipment/assistive-equipment/">Assistive equipment</a></li>
+	<li id="menu-item-1023" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1023"><a href="https://www.hearinglink.org/living/loops-equipment/hearing-loops/">Hearing loops</a>
+	<ul class="sub-menu">
+		<li id="menu-item-1024" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1024"><a href="https://www.hearinglink.org/living/loops-equipment/hearing-loops/what-is-a-hearing-loop/">What is a hearing loop?</a></li>
+		<li id="menu-item-1022" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1022"><a href="https://www.hearinglink.org/living/loops-equipment/hearing-loops/hearing-loops-frequently-asked-questions/">Hearing loops frequently asked questions</a></li>
+		<li id="menu-item-1021" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1021"><a href="https://www.hearinglink.org/living/loops-equipment/hearing-loops/hearing-loops-best-practice/">Hearing loops best practice</a></li>
+	</ul>
+</li>
+	<li id="menu-item-1028" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1028"><a href="https://www.hearinglink.org/living/loops-equipment/fm-systems/">FM systems</a></li>
+	<li id="menu-item-5115" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5115"><a href="https://www.hearinglink.org/living/loops-equipment/infrared-systems/">Infrared systems</a></li>
+	<li id="menu-item-1031" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1031"><a href="https://www.hearinglink.org/living/loops-equipment/speech-recognition-systems/">Speech recognition systems</a></li>
+	<li id="menu-item-1025" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1025"><a href="https://www.hearinglink.org/living/loops-equipment/remote-captioning/">Remote captioning</a></li>
+</ul>
+</li>
+</ul></div>
+
+		<div class="columns large-12 medium-6 small-12">
+			<div class="side-news">
+				<h2>Useful links</h2>
+				<ul>
+					<li>
+							<a href="https://www.hearinglink.org/news/202003/blog-the-road-to-nowhere/"><span class="news-item-date"><span class="news-item-day">12</span><span class="news-item-month">Mar</span></span> Blog: The road to nowhere</a>
+					</li>
+					<li>
+							<a href="https://www.hearinglink.org/news/201911/captioning-awareness-week-11th-17th-november/"><span class="news-item-date"><span class="news-item-day">13</span><span class="news-item-month">Nov</span></span> Captioning Awareness Week: 11th-17th November</a>
+					</li>
+					<li>
+							<a href="https://www.hearinglink.org/news/201905/nadp-conference-date-announced-london/"><span class="news-item-date"><span class="news-item-day">14</span><span class="news-item-month">May</span></span> NADP conference date announced &#8211; London</a>
+					</li>
+					<li>
+							<a href="https://www.hearinglink.org/news/hearing-loss-news/201904/survey-accessible-travel-hub-northern-ireland/"><span class="news-item-date"><span class="news-item-day">08</span><span class="news-item-month">Apr</span></span> Survey: Accessible travel hub &#8211; Northern Ireland</a>
+					</li>
+					<li>
+							<a href="https://www.hearinglink.org/news/201902/gamification-project-to-assist-hearing-access/"><span class="news-item-date"><span class="news-item-day">28</span><span class="news-item-month">Feb</span></span> Gamification project to assist hearing access</a>
+					</li>
+					<li>
+							<a href="https://www.hearinglink.org/news/201902/sainsburys-piloting-sunflower-lanyard-for-customers/"><span class="news-item-date"><span class="news-item-day">27</span><span class="news-item-month">Feb</span></span> Sainsbury&#8217;s piloting sunflower lanyard for customers</a>
+					</li>
+					<li>
+							<a href="https://www.hearinglink.org/news/201902/hearing-access-to-be-debated-in-scottish-parliament/"><span class="news-item-date"><span class="news-item-day">21</span><span class="news-item-month">Feb</span></span> Hearing access to be debated in Scottish Parliament.</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+
+
+<div class="columns large-12 medium-6 small-12">
+	<div class="side-ad">
+				<div class="adimg">
+					<a href="https://www.rnib.org.uk/rnibconnect/hidden-disabilities-lanyard" target="_new"><img width="1024" height="768" src="https://www.hearinglink.org/wp-content/uploads/2018/08/sunflower-lanyard-1024x768.png" class="attachment-large size-large" alt="sunflower lanyard" title="Sunflower lanyard" srcset="https://www.hearinglink.org/wp-content/uploads/2018/08/sunflower-lanyard-1024x768.png 1024w, https://www.hearinglink.org/wp-content/uploads/2018/08/sunflower-lanyard-300x225.png 300w, https://www.hearinglink.org/wp-content/uploads/2018/08/sunflower-lanyard-768x576.png 768w" sizes="(max-width: 1024px) 100vw, 1024px" /></a>				</div>
+				<h3>Sunflower lanyard</h3>
+				<p>The sunflower lanyard is a symbol which allows members of staff at airports and train stations to recognise that you need additional assistance during your journey.<br>
+<a href="https://www.rnib.org.uk/rnibconnect/hidden-disabilities-lanyard" target="_new">How to get a lanyard</a></p>
+	</div>
+</div>
+<div class="columns large-12 medium-6 small-12">
+	<div class="side-ad">
+				<p>Welcome to www.deaftravel.co.uk, a unique travel website for the Deaf community!<br>
+<a href="http://www.deaftravel.co.uk" target="_new">Visit the Deaf Travel website</a></p>
+	</div>
+</div>
+<div class="columns large-12 medium-6 small-12">
+<section id="custom_html-17" class="widget_text widget widget_custom_html"><div class="textwidget custom-html-widget"><div class="gform_widget" id="enews-widget">
+<h2>Get the latest hearing loss news</h2>
+<form id="enews-signup-sidebar" action="https://analytics-eu.clickdimensions.com/forms/h/aQHM2oWPZg06yt1nlQlvQt" method="post" name="enews-signup-sidebar" class="enews-signup-form">
+<div class="row">
+<div class="columns large-12 medium-12 small-12"><label class="required" for="enews-signup-sidebar-firstname">First name</label><input id="enews-signup-sidebar-firstname" name="firstname" type="text" value="" required /></div>
+<div class="columns large-12 medium-12 small-12"><label class="required" for="enews-signup-sidebar-lastname">Last name</label><input id="enews-signup-sidebar-lastname" name="lastname" type="text" value="" required /></div>
+</div>
+<div class="row">
+<div class="columns large-12 medium-12 small-12"><label class="required" for="enews-signup-sidebar-email">Email address</label><input id="enews-signup-sidebar-email" name="email" type="email" value="" required /></div>
+<div class="columns large-12 medium-12 small-12"><label class="required" for="enews-signup-sidebar-confirm_email">Confirm email</label><input id="enews-signup-sidebar-confirm_email" name="confirm_email" type="email" value="" required /></div>
+</div>
+
+<input type="submit" value="Subscribe" />
+<div class="privacy-terms"><strong>Use of your data:</strong>
+Your data will be only be collected, processed and stored by Hearing Dogs for Deaf People and Hearing Link in line with our <a href="/privacy">Privacy Policy</a>. You can unsubscribe from our e-newsletter at any time by emailing <a href="mailto:dataprotectionofficer@hearingdogs.org.uk" target="_blank" rel="noopener noreferrer">dataprotectionofficer@hearingdogs.org.uk</a>.</div></form>
+
+</div>
+<!-- start validation script -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
+<script type="text/javascript">
+//validate the form
+var $jq = jQuery.noConflict();
+$jq(document).ready( function() {
+  $jq("form[name='enews-signup-sidebar']").validate({
+    rules: {
+      firstname: "required",
+      lastname: "required",
+      email: {
+        required: true,
+        email: true
+      },
+      confirm_email: {
+        equalTo: '[name="email"]'
+      },
+    },
+    // Specify validation error messages
+    messages: {
+      firstname: "Please enter your first name",
+      lastname: "Please enter your last name",
+      email: "Please enter a valid email address",
+      confirm_email: "Please check that your email is entered correctly",
+    },
+    // Make sure the form is submitted to the destination defined
+    // in the "action" attribute of the form when valid
+    submitHandler: function(form) {
+			$jq("form[name='enews-signup-sidebar'] >  input[type=submit]").attr("disabled", true);
+			form.submit();
+    }
+  });
+});
+</script>
+<!-- end validation script -->
+<script type="text/javascript" src="https://analytics-eu.clickdimensions.com/ts.js" > </script> 
+<script type="text/javascript"> 
+  var cdAnalytics = new clickdimensions.Analytics('analytics-eu.clickdimensions.com'); 
+  cdAnalytics.setAccountKey('ah07kdlP3k6FoUSh6kEvYw'); 
+  cdAnalytics.setDomain('hearinglink.org'); 
+  cdAnalytics.setScore(typeof(cdScore) == "undefined" ? 0 : (cdScore == 0 ? null : cdScore)); 
+  cdAnalytics.trackPage(); 
+</script> </div></section></div>
+	</section>
+
+</div>
+
+
+</main>
+
+<footer class="footer">
+	<div class="row footer-row">
+		<div class="columns large-8 small-12 footer-left">
+			<div class="inline">
+<div class="menu-footer-container"><ul id="menu-footer" class="menu"><li id="menu-item-780" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-780"><a href="https://www.hearinglink.org/antispam/">antispam</a></li>
+<li id="menu-item-784" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-784"><a href="https://www.hearinglink.org/complaints/">complaints</a></li>
+<li id="menu-item-2218" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2218"><a href="https://www.hearinglink.org/about-us/contact-us/">contact us</a></li>
+<li id="menu-item-2237" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2237"><a href="https://www.hearinglink.org/cookies/">cookies</a></li>
+<li id="menu-item-779" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-779"><a href="https://www.hearinglink.org/copyright/">copyright</a></li>
+<li id="menu-item-778" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-778"><a href="https://www.hearinglink.org/linking/">linking</a></li>
+<li id="menu-item-781" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-781"><a href="https://www.hearinglink.org/medical-disclaimer/">medical disclaimer</a></li>
+<li id="menu-item-777" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-777"><a href="https://www.hearinglink.org/privacy/">privacy</a></li>
+<li id="menu-item-785" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-785"><a href="https://www.hearinglink.org/site-map/">site map</a></li>
+<li id="menu-item-3096" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3096"><a href="https://www.hearinglink.org/website-disclaimer/">website disclaimer</a></li>
+</ul></div>			</div>
+
+			<address class="legal-info">
+			<div class="textwidget"><ul>
+<li>Registered address: The Grange, Wycombe Road, Saunderton, Princes Risborough, Buckinghamshire, HP27 9NS</li>
+<li><a href="mailto:enquiries@hearinglink.org" target="_blank" rel="noopener noreferrer">enquiries@hearinglink.org</a></li>
+<li style="margin-top: 0.75em;">Registered charity in England &amp; Wales: 293358</li>
+<li>Registered charity in Scotland: SC040486</li>
+</ul>
+</div>
+					</address>
+		</div>
+		<div class="columns large-4 small-12 footer-right footer__login">
+			<div class="textwidget"><div class="et_social_networks et_social_autowidth et_social_slide et_social_circle et_social_top et_social_nospace et_social_mobile_on et_social_outer_dark">
+					
+					
+					<ul class="et_social_icons_container"><li class="et_social_facebook">
+						<a href="http://www.facebook.com/hearinglink" class="et_social_follow" target="_blank" rel="noopener noreferrer">
+							<i class="et_social_icon et_social_icon_facebook"></i>
+							
+							<span class="et_social_overlay"></span>
+						</a>
+					</li><li class="et_social_twitter">
+						<a href="http://www.twitter.com/HearingLink" class="et_social_follow" target="_blank" rel="noopener noreferrer">
+							<i class="et_social_icon et_social_icon_twitter"></i>
+							
+							<span class="et_social_overlay"></span>
+						</a>
+					</li><li class="et_social_linkedin">
+						<a href="https://www.linkedin.com/company/hearing-link" class="et_social_follow" target="_blank" rel="noopener noreferrer">
+							<i class="et_social_icon et_social_icon_linkedin"></i>
+							
+							<span class="et_social_overlay"></span>
+						</a>
+					</li><li class="et_social_youtube">
+						<a href="https://www.youtube.com/user/Hearinglink" class="et_social_follow" target="_blank" rel="noopener noreferrer">
+							<i class="et_social_icon et_social_icon_youtube"></i>
+							
+							<span class="et_social_overlay"></span>
+						</a>
+					</li></ul>
+				</div></div>
+					<div class="textwidget">Hearing Link is a UK charity active in <a href="/connect/hearing-link-england/">England</a>, <a href="/connect/hearing-link-scotland/">Scotland</a>, <a href="/connect/hearing-link-northern-ireland/">Northern Ireland</a> and <a href="/connect/hearing-link-wales/">Wales</a> for people with hearing loss, their families and friends</div>
+				</div>
+	</div>
+</footer>
+<!--googleoff: all--><div id="cookie-law-info-bar"><span>This website uses cookies to improve your experience. <a href='https://www.hearinglink.org/cookies/' id="CONSTANT_OPEN_URL"  class="cli-plugin-main-link"  style="display:inline-block;" >Read More</a> <a role='button' tabindex='0' data-cli_action="accept" id="cookie_action_close_header"  class="medium cli-plugin-button cli-plugin-main-button cookie_action_close_header cli_action_button" style="display:inline-block; ">Accept</a> </span></div><div id="cookie-law-info-again" style="display:none;"><span id="cookie_hdr_showagain">Privacy & Cookies Policy</span></div><div class="cli-modal" id="cliSettingsPopup" tabindex="-1" role="dialog" aria-labelledby="cliSettingsPopup" aria-hidden="true">
+  <div class="cli-modal-dialog" role="document">
+    <div class="cli-modal-content cli-bar-popup">
+      <button type="button" class="cli-modal-close" id="cliModalClose">
+        <svg class="" viewBox="0 0 24 24"><path d="M19 6.41l-1.41-1.41-5.59 5.59-5.59-5.59-1.41 1.41 5.59 5.59-5.59 5.59 1.41 1.41 5.59-5.59 5.59 5.59 1.41-1.41-5.59-5.59z"></path><path d="M0 0h24v24h-24z" fill="none"></path></svg>
+        <span class="wt-cli-sr-only">Close</span>
+      </button>
+      <div class="cli-modal-body">
+        <div class="cli-container-fluid cli-tab-container">
+    <div class="cli-row">
+        <div class="cli-col-12 cli-align-items-stretch cli-px-0">
+            <div class="cli-privacy-overview">
+                                                   
+                <div class="cli-privacy-content">
+                    <div class="cli-privacy-content-text"></div>
+                </div>
+                <a class="cli-privacy-readmore" data-readmore-text="Show more" data-readless-text="Show less"></a>            </div>
+        </div>  
+        <div class="cli-col-12 cli-align-items-stretch cli-px-0 cli-tab-section-container">
+              
+                            <div class="cli-tab-section">
+                    <div class="cli-tab-header">
+                        <a role="button" tabindex="0" class="cli-nav-link cli-settings-mobile" data-target="necessary" data-toggle="cli-toggle-tab" >
+                            Necessary 
+                        </a>
+                    
+                    <span class="cli-necessary-caption">Always Enabled</span>                     </div>
+                    <div class="cli-tab-content">
+                        <div class="cli-tab-pane cli-fade" data-id="necessary">
+                            <p></p>
+                        </div>
+                    </div>
+                </div>
+              
+                       
+        </div>
+    </div> 
+</div> 
+      </div>
+    </div>
+  </div>
+</div>
+<div class="cli-modal-backdrop cli-fade cli-settings-overlay"></div>
+<div class="cli-modal-backdrop cli-fade cli-popupbar-overlay"></div>
+<script type="text/javascript">
+  /* <![CDATA[ */
+  cli_cookiebar_settings='{"animate_speed_hide":"500","animate_speed_show":"500","background":"#5f6b81","border":"#444","border_on":false,"button_1_button_colour":"#6daf36","button_1_button_hover":"#578c2b","button_1_link_colour":"#fff","button_1_as_button":true,"button_1_new_win":false,"button_2_button_colour":"#333","button_2_button_hover":"#292929","button_2_link_colour":"#ee8134","button_2_as_button":false,"button_2_hidebar":false,"button_3_button_colour":"#000","button_3_button_hover":"#000000","button_3_link_colour":"#fff","button_3_as_button":true,"button_3_new_win":false,"button_4_button_colour":"#000","button_4_button_hover":"#000000","button_4_link_colour":"#fff","button_4_as_button":true,"font_family":"inherit","header_fix":false,"notify_animate_hide":true,"notify_animate_show":true,"notify_div_id":"#cookie-law-info-bar","notify_position_horizontal":"right","notify_position_vertical":"top","scroll_close":false,"scroll_close_reload":false,"accept_close_reload":false,"reject_close_reload":false,"showagain_tab":false,"showagain_background":"#fff","showagain_border":"#000","showagain_div_id":"#cookie-law-info-again","showagain_x_position":"100px","text":"#ffffff","show_once_yn":false,"show_once":"10000","logging_on":false,"as_popup":false,"popup_overlay":true,"bar_heading_text":"","cookie_bar_as":"banner","popup_showagain_position":"bottom-right","widget_position":"left"}';
+  /* ]]> */
+</script>
+<!--googleon: all-->
+<style type="text/css"> 
+	body.ig_laptop div#ui-datepicker-div[style],
+ 	body.ig_tablet div#ui-datepicker-div[style],
+ 	body.ig_mobile div#ui-datepicker-div[style]{
+ 		z-index: 9999999!important; 
+ 	} 
+</style>
+
+<script type="text/javascript">
+jQuery(function() {
+  	jQuery( window ).on( "init.icegram", function(e, ig) {
+	  	// Find and init all datepicker inside gravityForms
+	  	jQuery('body').on('focus', 'form[id^="gform_"] .datepicker', function(){
+	  		jQuery(this).datepicker();
+	  	});
+  	}); // init.icegram
+});
+</script>
+
+			<div class="et_social_pin_images_outer">
+					<div class="et_social_pinterest_window">
+						<div class="et_social_modal_header"><h3>Pin It on Pinterest</h3><span class="et_social_close"></span></div>
+						<div class="et_social_pin_images" data-permalink="https://www.hearinglink.org/living/out-about/travelling/" data-title="Travelling" data-post_id="160"></div>
+					</div>
+				</div><div class="et_social_sidebar_networks et_social_visible_sidebar et_social_slideright et_social_animated et_social_rounded et_social_sidebar_slide et_social_mobile_on et_social_sidebar_networks_right">
+					
+					<ul class="et_social_icons_container"><li class="et_social_facebook">
+									<a href="http://www.facebook.com/sharer.php?u=https%3A%2F%2Fwww.hearinglink.org%2Fliving%2Fout-about%2Ftravelling%2F&#038;t=Travelling" class="et_social_share" rel="nofollow" data-social_name="facebook" data-post_id="160" data-social_type="share" data-location="sidebar">
+										<i class="et_social_icon et_social_icon_facebook"></i>
+										
+										
+										<span class="et_social_overlay"></span>
+									</a>
+								</li><li class="et_social_twitter">
+									<a href="http://twitter.com/share?text=Travelling&#038;url=https%3A%2F%2Fwww.hearinglink.org%2Fliving%2Fout-about%2Ftravelling%2F" class="et_social_share" rel="nofollow" data-social_name="twitter" data-post_id="160" data-social_type="share" data-location="sidebar">
+										<i class="et_social_icon et_social_icon_twitter"></i>
+										
+										
+										<span class="et_social_overlay"></span>
+									</a>
+								</li><li class="et_social_linkedin">
+									<a href="http://www.linkedin.com/shareArticle?mini=true&#038;url=https%3A%2F%2Fwww.hearinglink.org%2Fliving%2Fout-about%2Ftravelling%2F&#038;title=Travelling" class="et_social_share" rel="nofollow" data-social_name="linkedin" data-post_id="160" data-social_type="share" data-location="sidebar">
+										<i class="et_social_icon et_social_icon_linkedin"></i>
+										
+										
+										<span class="et_social_overlay"></span>
+									</a>
+								</li><li class="et_social_gmail">
+									<a href="https://mail.google.com/mail/u/0/?view=cm&#038;fs=1&#038;su=Travelling&#038;body=https%3A%2F%2Fwww.hearinglink.org%2Fliving%2Fout-about%2Ftravelling%2F&#038;ui=2&#038;tf=1" class="et_social_share" rel="nofollow" data-social_name="gmail" data-post_id="160" data-social_type="share" data-location="sidebar">
+										<i class="et_social_icon et_social_icon_gmail"></i>
+										
+										
+										<span class="et_social_overlay"></span>
+									</a>
+								</li><li class="et_social_printfriendly">
+									<a href="http://www.printfriendly.com/print?url=https%3A%2F%2Fwww.hearinglink.org%2Fliving%2Fout-about%2Ftravelling%2F&#038;title=Travelling" class="et_social_share" rel="nofollow" data-social_name="printfriendly" data-post_id="160" data-social_type="share" data-location="sidebar">
+										<i class="et_social_icon et_social_icon_printfriendly"></i>
+										
+										
+										<span class="et_social_overlay"></span>
+									</a>
+								</li><li class="et_social_all_button">
+								<a href="#" rel="nofollow" data-location="sidebar" data-page_id="160" data-permalink="https://www.hearinglink.org/living/out-about/travelling/" data-title="Travelling" class="et_social_open_all">
+									<i class="et_social_icon et_social_icon_all_button"></i>
+									<span class="et_social_overlay"></span>
+								</a>
+							</li></ul>
+					<span class="et_social_hide_sidebar et_social_icon"></span>
+				</div><div class="et_social_mobile_button"></div>
+					<div class="et_social_mobile et_social_fadein">
+						<div class="et_social_heading">Share This</div>
+						<span class="et_social_close"></span>
+						<div class="et_social_networks et_social_simple et_social_rounded et_social_left">
+							<ul class="et_social_icons_container"><li class="et_social_facebook">
+									<a href="http://www.facebook.com/sharer.php?u=https%3A%2F%2Fwww.hearinglink.org%2Fliving%2Fout-about%2Ftravelling%2F&#038;t=Travelling" class="et_social_share" rel="nofollow" data-social_name="facebook" data-post_id="160" data-social_type="share" data-location="sidebar">
+										<i class="et_social_icon et_social_icon_facebook"></i>
+										<div class="et_social_network_label"><div class="et_social_networkname">Facebook</div></div>
+										
+										<span class="et_social_overlay"></span>
+									</a>
+								</li><li class="et_social_twitter">
+									<a href="http://twitter.com/share?text=Travelling&#038;url=https%3A%2F%2Fwww.hearinglink.org%2Fliving%2Fout-about%2Ftravelling%2F" class="et_social_share" rel="nofollow" data-social_name="twitter" data-post_id="160" data-social_type="share" data-location="sidebar">
+										<i class="et_social_icon et_social_icon_twitter"></i>
+										<div class="et_social_network_label"><div class="et_social_networkname">Twitter</div></div>
+										
+										<span class="et_social_overlay"></span>
+									</a>
+								</li><li class="et_social_linkedin">
+									<a href="http://www.linkedin.com/shareArticle?mini=true&#038;url=https%3A%2F%2Fwww.hearinglink.org%2Fliving%2Fout-about%2Ftravelling%2F&#038;title=Travelling" class="et_social_share" rel="nofollow" data-social_name="linkedin" data-post_id="160" data-social_type="share" data-location="sidebar">
+										<i class="et_social_icon et_social_icon_linkedin"></i>
+										<div class="et_social_network_label"><div class="et_social_networkname">LinkedIn</div></div>
+										
+										<span class="et_social_overlay"></span>
+									</a>
+								</li><li class="et_social_gmail">
+									<a href="https://mail.google.com/mail/u/0/?view=cm&#038;fs=1&#038;su=Travelling&#038;body=https%3A%2F%2Fwww.hearinglink.org%2Fliving%2Fout-about%2Ftravelling%2F&#038;ui=2&#038;tf=1" class="et_social_share" rel="nofollow" data-social_name="gmail" data-post_id="160" data-social_type="share" data-location="sidebar">
+										<i class="et_social_icon et_social_icon_gmail"></i>
+										<div class="et_social_network_label"><div class="et_social_networkname">Gmail</div></div>
+										
+										<span class="et_social_overlay"></span>
+									</a>
+								</li><li class="et_social_printfriendly">
+									<a href="http://www.printfriendly.com/print?url=https%3A%2F%2Fwww.hearinglink.org%2Fliving%2Fout-about%2Ftravelling%2F&#038;title=Travelling" class="et_social_share" rel="nofollow" data-social_name="printfriendly" data-post_id="160" data-social_type="share" data-location="sidebar">
+										<i class="et_social_icon et_social_icon_printfriendly"></i>
+										<div class="et_social_network_label"><div class="et_social_networkname">Print Friendly</div></div>
+										
+										<span class="et_social_overlay"></span>
+									</a>
+								</li><li class="et_social_all_button">
+								<a href="#" rel="nofollow" data-location="sidebar" data-page_id="160" data-permalink="https://www.hearinglink.org/living/out-about/travelling/" data-title="Travelling" class="et_social_open_all">
+									<i class="et_social_icon et_social_icon_all_button"></i>
+									<span class="et_social_overlay"></span>
+								</a>
+							</li></ul>
+						</div>
+					</div>
+					<div class="et_social_mobile_overlay"></div><script type='text/javascript' src='https://www.hearinglink.org/wp-content/plugins/responsive-lightbox/assets/prettyphoto/jquery.prettyPhoto.min.js?ver=2.2.2'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var rlArgs = {"script":"prettyphoto","selector":"lightbox","customEvents":"","activeGalleries":"0","animationSpeed":"fast","slideshow":"0","slideshowDelay":"5000","slideshowAutoplay":"0","opacity":"0.65","showTitle":"0","allowResize":"1","allowExpand":"1","width":"1080","height":"720","separator":"\/","theme":"light_rounded","horizontalPadding":"20","hideFlash":"0","wmode":"opaque","videoAutoplay":"0","modal":"0","deeplinking":"1","overlayGallery":"1","keyboardShortcuts":"1","social":"0","woocommerce_gallery":"0","ajaxurl":"https:\/\/www.hearinglink.org\/wp-admin\/admin-ajax.php","nonce":"bc465fa8e4"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.hearinglink.org/wp-content/plugins/responsive-lightbox/js/front.js?ver=2.2.2'></script>
+<script type='text/javascript' src='https://www.hearinglink.org/wp-content/plugins/monarch/js/idle-timer.min.js?ver=1.4.12'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var monarchSettings = {"ajaxurl":"https:\/\/www.hearinglink.org\/wp-admin\/admin-ajax.php","pageurl":"https:\/\/www.hearinglink.org\/living\/out-about\/travelling\/","stats_nonce":"3b1a1054d5","share_counts":"eaf284b30b","follow_counts":"28e94ad1bf","total_counts":"f80b8f8020","media_single":"117d655c98","media_total":"f90e8a39aa","generate_all_window_nonce":"97581cd02d","no_img_message":"No images available for sharing on this page"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.hearinglink.org/wp-content/plugins/monarch/js/custom.js?ver=1.4.12'></script>
+<script type='text/javascript' src='https://www.hearinglink.org/wp-content/themes/pwl-hearinglink/js/navigation.js?ver=20120206'></script>
+<script type='text/javascript' src='https://www.hearinglink.org/wp-content/themes/pwl-hearinglink/js/skip-link-focus-fix.js?ver=20130115'></script>
+<script type='text/javascript' src='https://www.hearinglink.org/wp-content/plugins/monarch/core/admin/js/common.js?ver=3.20.2'></script>
+<script type='text/javascript' src='https://www.hearinglink.org/wp-includes/js/wp-embed.min.js?ver=5.4.1'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var icegram_pre_data = {"ajax_url":"https:\/\/www.hearinglink.org\/wp-admin\/admin-ajax.php","post_obj":{"is_home":false,"page_id":160,"action":"display_messages","shortcodes":[],"cache_compatibility":"yes","device":"laptop"}};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.hearinglink.org/wp-content/plugins/icegram/assets/js/main.min.js?ver=1.10.39'></script>
+
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"52c0c7a266","applicationID":"13105456","transactionName":"MwABNUUHV0pQBkFdWQpKIgJDD1ZXHhVUU1M=","queueTime":0,"applicationTime":355,"atts":"H0cCQw0dREQ=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>

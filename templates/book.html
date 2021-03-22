@@ -1,0 +1,76 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BOOK</title>
+</head>
+<body>
+<style>
+    body {
+    background: url("{% static 'hotels/images/pay.jpg' %}") no-repeat center center fixed;
+    -webkit-background-size:cover;
+    -moz-background-size:cover;
+    background-size:cover;
+    -o-background-size:cover;
+    }
+    </style>
+<style>
+.button
+{
+    font-size: 13px;
+    color:white;
+    background-color: #ff0000;
+    padding: 15px 32px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+}
+</style>
+
+<style>
+.button1
+{
+    font-size: 13px;
+    color:yellow;
+    background-color:black;
+    padding: 15px 32px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+}
+</style>
+<center>
+
+    <strong><h1 style="font-family:Goudy Stout">BOOK USING WANDERLUST.COM</h1></strong>
+    <h2 style="font-family:Bahnschrift SemiLight Condensed">We won't let down your hopes....</h2>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <strong><h1 style="font-family:Goudy Stout">HOW WOULD YOU LIKE TO PAY???</h1></strong>
+
+<form method="get" action="/accounts/pay">
+
+    <button style="font-family:Cooper Black;" class="button" type="submit">PAY USING CARD</button>
+</form>
+    <br>
+    <br>
+   <form method="get" action="/accounts/sorry">
+    <button style="font-family:Cooper Black" class="button" type="submit">PAY ON SPOT... ONLY DO THE BOOKINGS</button>
+</form>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+<form method="get" action="/">
+
+    <button style="font-family:Cooper Black" class="button1" type="submit">GO BACK TO HOME PAGE</button>
+</form></center>
+</body>
+</html>

@@ -1,0 +1,38 @@
+{% load static %}
+{% static "registration" as baseUrl %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SPECIAL_OFFERS</title>
+
+</head>
+<body>
+<style>
+    body {
+    background: url("{% static 'registration/registration/images/offer.jpg' %}") no-repeat center center fixed;
+    -webkit-background-size:cover;
+    -moz-background-size:cover;
+    background-size:cover;
+    -o-background-size:cover;
+    }
+
+</style>
+<center><h1>FIND THE BEST OFFERS HERE!!!</h1>
+<h1>Explore till your heart feels overloaded...</h1>
+</center>
+{% for dest in dests %}
+	{% if dest.offer %}
+	<center>
+	<img src='{{dest.img.url}}' alt="">
+		<div><a href="/"<h2>{{dest.name}}</h2></a></div>
+	<div><p>{{dest.desc}}</p></div>
+	<div>From ${{dest.price}}</div>
+		<br>
+		<br>
+	</center>
+	{% endif %}
+{% endfor %}
+
+</body>
+</html>
